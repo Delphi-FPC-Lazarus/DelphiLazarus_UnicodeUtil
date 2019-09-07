@@ -289,12 +289,12 @@ var
 begin
   setlength(result, length(arr1) + length(arr2));
   ofs := 0;
-  if arr1 <> nil then
+  if length(arr1)>0 then
   begin
     Move(arr1[0], result[ofs], length(arr1));
     inc(ofs, length(arr1));
   end;
-  if arr2 <> nil then
+  if length(arr2)>0 then
   begin
     Move(arr2[0], result[ofs], length(arr2));
     inc(ofs, length(arr2));
@@ -311,12 +311,14 @@ begin
       begin
         setlength(result, length(arr) + 1);
         Move(b, result[0], 1);
-        Move(arr[0], result[1], length(arr));
+        if length(arr)>0 then
+          Move(arr[0], result[1], length(arr));
       end;
     addEnd:
       begin
         setlength(result, length(arr) + 1);
-        Move(arr[0], result[0], length(arr));
+        if length(arr)>0 then
+          Move(arr[0], result[0], length(arr));
         Move(b, result[length(arr)], 1);
       end;
   end;
