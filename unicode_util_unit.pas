@@ -40,18 +40,18 @@ uses
 
 // String to Buf (Merge) - erzeugt optional UTF8 und UTF16s (MBCS / Multi-Byte Character Set)
 // Achtung: bei leerem String wird toindex trotz gesetzter destfilllen nicht hochgesetzt
-function StringToBuf_UNICODE(s: String; var buf; var toindex: integer;
+function StringToBuf_UNICODE(const s: String; var buf; var toindex: integer;
   destcodepage: integer; destfilllen: integer = 0;
   destfillbyte: byte = 0): boolean;
 
 // String to Buf (Merge) - erzeugt Kopie von ANSI String (SBCS / Single-Byte Character Set)
 // Achtung: bei leerem String wird toindex trotz gesetzter destfilllen nicht hochgesetzt
-function StringToBuf_ANSI(s: String; var buf; var toindex: integer;
+function StringToBuf_ANSI(const s: String; var buf; var toindex: integer;
   destfilllen: integer = 0; destfillbyte: byte = 0): boolean;
 
 // Bytes to Buf (Merge)
 // Achtung: bei leerem String wird toindex trotz gesetzter destfilllen nicht hochgesetzt
-function BytesToBuf(arr: TBytes; var buf; var toindex: integer;
+function BytesToBuf(const arr: TBytes; var buf; var toindex: integer;
   destfilllen: integer = 0; destfillbyte: byte = 0): boolean;
 
 { ----------------------------------------------------------------------------- }
@@ -75,7 +75,7 @@ type
   RAddTyp = (addStart, addEnd);
 function TBytesAdd(b: byte; arr: TBytes; typ: RAddTyp): TBytes;
 
-function StringToTBytes(s: String): TBytes;
+function StringToTBytes(const s: String): TBytes;
 
 { ----------------------------------------------------------------------------- }
 
@@ -86,7 +86,7 @@ uses unicode_encode_unit, unicode_decode_unit, unicode_def_unit;
 { ----------------------------------------------------------------------------- }
 { ----------------------------------------------------------------------------- }
 
-function StringToBuf_UNICODE(s: String; var buf; var toindex: integer;
+function StringToBuf_UNICODE(const s: String; var buf; var toindex: integer;
   destcodepage: integer; destfilllen: integer = 0;
   destfillbyte: byte = 0): boolean;
 var
@@ -121,7 +121,7 @@ end;
 
 { ----------------------------------------------------------------------------- }
 
-function StringToBuf_ANSI(s: String; var buf; var toindex: integer;
+function StringToBuf_ANSI(const s: String; var buf; var toindex: integer;
   destfilllen: integer = 0; destfillbyte: byte = 0): boolean;
 var
   i: integer;
@@ -165,7 +165,7 @@ end;
 
 { ----------------------------------------------------------------------------- }
 
-function BytesToBuf(arr: TBytes; var buf; var toindex: integer;
+function BytesToBuf(const arr: TBytes; var buf; var toindex: integer;
   destfilllen: integer = 0; destfillbyte: byte = 0): boolean;
 var
   i: integer;
@@ -326,7 +326,7 @@ end;
 
 { ----------------------------------------------------------------------------- }
 
-function StringToTBytes(s: String): TBytes;
+function StringToTBytes(const s: String): TBytes;
 var
   i: integer;
 begin

@@ -36,7 +36,7 @@ uses
 
 // Encoding von String in TBytes - Unicode (UTF16/UTF16BE/UTF8 mit BOM)
 // Zielcodepage kann übergeben werden
-function StringToBytes_Encode(s: string; destcodepage: integer;
+function StringToBytes_Encode(const s: string; destcodepage: integer;
   withBOM: boolean = true): TBytes;
 
 { ----------------------------------------------------------------------------- }
@@ -47,7 +47,7 @@ uses unicode_util_unit, unicode_def_unit;
 
 { ----------------------------------------------------------------------------- }
 
-function StringToBytes_Encode(s: string; destcodepage: integer;
+function StringToBytes_Encode(const s: string; destcodepage: integer;
   withBOM: boolean = true): TBytes;
 var
   Encoding: TEncoding;
